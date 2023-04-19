@@ -1,9 +1,11 @@
 import './App.css';
-import Movie from './Components/Movie';
+import { Hero } from './Components/Hero';
 
 function App() {
   return(
-    <Movie/>
+    <div>
+      <Hero />
+    </div>
   )
 }
 
