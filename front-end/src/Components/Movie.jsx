@@ -6,7 +6,7 @@ function Movie() {
   useEffect(() => {
     fetch("/api/movies")
       .then((res) => res.json())
-      .then((data) => setMovies(data.movies));
+      .then((data) => setMovies(data));
   }, []);
 
   return (
@@ -14,8 +14,7 @@ function Movie() {
       {!movies ? <p>Loading...</p> : movies.map((movie, index) => {
         return (
           <>
-            <h1 key={index}>Nombre: {movie.name}</h1>
-            <h2 key={index}>Duración: {movie.duration}</h2>
+            <h1 key={index}>Nombre: {movie.title}</h1>
           </>
         );
       })}
