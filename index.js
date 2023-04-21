@@ -31,11 +31,11 @@ app.get("/api/movies", (req, res) => {
 
 // Esto hace que NodeJS sirva los archivos resultado del build de ReactJS
 // Esto va antes de nuestros endpoints pero después de la declaración de app.
-app.use(express.static(path.resolve("front-end/build")));
+app.use(express.static(path.resolve("client/build")));
 // Todas las peticiones GET que no manejamos ahora regresarán nuestra React App
 // Agrega esto antes del “app.listen”
 app.get("*", (req, res) => {
-    res.sendFile(path.resolve("front-end/build", "index.html"));
+    res.sendFile(path.resolve("client/build", "index.html"));
 });
 
 app.listen(PORT, () => {
