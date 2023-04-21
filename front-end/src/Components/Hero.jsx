@@ -7,7 +7,7 @@ export const Hero = () => {
                     <p className="py-6">
                     Crea, actualiza, borra y be las películas disponibles en la tienda
                     </p>
-                    <button className="btn btn-primary">Ver películas</button>
+                    <a className="btn btn-primary" href="#peliculas">Ver películas</a>
                 </div>
             </div>
         </header>

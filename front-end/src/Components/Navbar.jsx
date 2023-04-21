@@ -10,7 +10,7 @@ export const Navbar = () => {
                         <a href="/">Agregar Película</a>
                     </li>
                     <li>
-                        <a href="/">Ver Películas</a>
+                        <a href="#peliculas">Ver Películas</a>
                     </li>
                 </ul>
             </div>

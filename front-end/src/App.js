@@ -3,61 +3,29 @@ import { Hero } from './Components/Hero';
 import { Navbar } from './Components/Navbar';
 
 import { MovieCard } from './Components/MovieCard';
-import prueba from './assets/prueba.jpg'
-
-const movies = [
-  {
-    id: 1,
-    title: 'The Shawshank Redemption',
-    description: "lorem ipsum",
-    image: prueba,
-    rate: 5
-  },
-  {
-    id: 2,
-    title: 'The Godfather',
-    description: "lorem ipsum",
-    image: 'https://picsum.photos/id/237/200/300',
-    rating: 4
-  },
-  {
-    id: 1,
-    title: 'The Shawshank Redemption',
-    description: "lorem ipsum",
-    image: 'https://picsum.photos/id/237/200/300',
-    rating: 5
-  },
-  {
-    id: 2,
-    title: 'The Godfather',
-    description: "lorem ipsum",
-    image: 'https://picsum.photos/id/237/200/300',
-    rating: 4
-  },
-  {
-    id: 1,
-    title: 'The Shawshank Redemption',
-    description: "lorem ipsum",
-    image: 'https://picsum.photos/id/237/200/300',
-    rating: 5
-  },
-  {
-    id: 2,
-    title: 'The Godfather',
-    description: "lorem ipsum",
-    posterUrl: 'https://picsum.photos/id/237/200/300',
-    rating: 4
-  },
-]
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/movies')
+      .then(res => res.json())
+      .then(data => setMovies(data))
+      .catch(err => console.log(err))
+  }, [])
+
   return(
     <div>
       <Navbar />
       <Hero />
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 align-middle gap-5 mt-5">
-          {movies.map(movie => <MovieCard {...movie} />)}
+        <h1 className="text-5xl text-center font-bold m-10" id="peliculas">Películas</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 align-middle gap-5 mt-5 xl:mx-10">
+          {
+            movies && movies.map(movie => <MovieCard {...movie} />)
+          }
         </div>
       </div>
     </div>
