@@ -1,6 +1,8 @@
 import { ModalEdit } from "./ModalEdit";
+import { useState } from "react";
 
 export const MovieCard = ({ id, title, description, image, rating }) => {
+    const [modalOpen, setModalOpen] = useState(false);
     const movie = { id, title, description, image, rating };
     return (
         <>
@@ -16,11 +18,11 @@ export const MovieCard = ({ id, title, description, image, rating }) => {
                     <h2 className="card-title ">{title}</h2>
                     <p className="overflow-clip">{description}</p>
                     <div className="card-actions justify-center mt-2">
-                        <label className="btn btn-secondary" htmlFor={`my-modal-${id}`}>Edit</label>
+                        <label className="btn btn-secondary" onClick={() => setModalOpen(true)} htmlFor={`my-modal-${id}`}>Edit</label>
                     </div>
                 </div>
             </div>
-            <ModalEdit {...movie} />
+            {modalOpen && <ModalEdit {...movie} closeModal={() => setModalOpen(false)} />}
         </>
     );
 };

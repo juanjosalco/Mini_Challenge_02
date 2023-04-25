@@ -32,7 +32,7 @@ app.get("/api/movies", (req, res) => {
 app.post("/api/movies", (req, res) => {
     connection.connect(function (err) {
         if (err) throw err;
-        let query = `INSERT INTO movies (title, description, image, rating) VALUES (${req.body.title}, ${req.body.description}, ${req.body.image}, ${req.body.rating})`;
+        let query = `INSERT INTO movies (title, description, image, rating) VALUES ("${req.body.title}", "${req.body.description}", "${req.body.image}", ${req.body.rating})`;
         connection.query(
             query, function (err, result, fields) {
                 if (err) res.status(500).send(err);
@@ -61,9 +61,9 @@ app.patch("/api/movies/:id", (req,res) => {
     connection.connect(function(err) {
         if (err) throw err;
         let query = `UPDATE movies SET `;
-        if (req.body.title) query += `title = ${req.body.title}, `;
-        if (req.body.description) query += `description = ${req.body.description}, `;
-        if (req.body.image) query += `image = ${req.body.image}, `;
+        if (req.body.title) query += `title = "${req.body.title}", `;
+        if (req.body.description) query += `description = "${req.body.description}", `;
+        if (req.body.image) query += `image = "${req.body.image}", `;
         if (req.body.rating) query += `rating = ${req.body.rating}, `;
         query = query.slice(0, -2);
         query += ` WHERE id = ${req.params.id}`;
