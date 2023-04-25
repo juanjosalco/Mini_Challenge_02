@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "cd front-end && npm run build && cd .. && git add . && git commit -m \"deploy\" && vercel"
+    "deploy": "cd front-end && npm run build && cd .. && git add . && git commit -m \"deploy\" && vercel",
+    "dev": "cd front-end && npm run start"
   },
   "author": "",
   "license": "ISC",
