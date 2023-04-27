@@ -13,7 +13,7 @@
     "tailwindcss": "^3.3.1",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "http://localhost:3001/",
+  "proxy": "https://mini-challenge-02.vercel.app/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
