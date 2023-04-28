@@ -22,7 +22,7 @@ export const MovieCard = ({ id, title, description, image, rating }) => {
                     </div>
                 </div>
             </div>
-            {modalOpen && <ModalEdit {...movie} closeModal={() => setModalOpen(false)} />}
+            {modalOpen && <ModalEdit {...movie} closeModal={() => setModalOpen(false)} editMovie />}
         </>
     );
 };

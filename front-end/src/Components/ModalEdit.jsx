@@ -8,9 +8,11 @@ export const ModalEdit = ({
     image,
     rating,
     closeModal,
+    editMovie,
 }) => {
     async function handleSubmit(e) {
         e.preventDefault();
+
         let inputs = document.querySelectorAll(
             `#form-${id} input:not([type="radio"])`
         );
@@ -28,13 +30,15 @@ export const ModalEdit = ({
 
         let rating = radios.getAttribute("id").split("-")[1];
         //If the rating has changed, add it to the data object
-        if (radios.getAttribute("formerdata") !== rating) {
+        if (radios.getAttribute("formerdata") !== rating && editMovie) {
+            data["rating"] = rating;
+        } else if (!editMovie) {
             data["rating"] = rating;
         }
 
         console.log(data);
 
-        if (data !== {}) {
+        if (data !== {} && editMovie) {
             let response = await fetch(`api/movies/${id}`, {
                 method: "PATCH",
                 headers: {
@@ -44,37 +48,68 @@ export const ModalEdit = ({
             });
             if (response.ok) {
                 closeModal();
+                window.location.reload();
             } else {
                 alert("Error al editar la película");
             }
-            //reload the page
-            window.location.reload();
+        } else if (data !== {} && !editMovie) {
+            let response = await fetch(`api/movies`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+            if (response.ok) {
+                closeModal();
+                window.location.reload();
+            } else {
+                alert("Error al editar la película");
+            }
         }
     }
 
     const ModalCard = ({ id, title, description, image, rating }) => {
         return (
             <div className="card card-side bg-base-100 flex flex-wrap">
-                <figure className="w-full md:w-[50%] lg:w-[33%]">
-                    <img
-                        src={image}
-                        alt={title}
-                        className="rounded-md object-cover w-full h-64"
-                    />
-                </figure>
+                {image ? (
+                    <figure className="w-full md:w-[50%] lg:w-[33%]">
+                        <img
+                            src={image}
+                            alt={title}
+                            className="rounded-md object-cover w-full h-64"
+                        />
+                    </figure>
+                ) : (
+                    <section className="w-full md:w-[50%] lg:w-[33%] items-center justify-center">
+                        <div className="flex h-full justify-center items-center">
+                            <h1 className="text-3xl text-center font-bold text-primary-100">
+                                Agrega una película
+                            </h1>
+                        </div>
+                    </section>
+                )}
                 <form
                     className="card-body w-[100%] md:w-[50%] lg:w-[66%] grid grid-cols-1 lg:grid-cols-2 gap-4"
                     onSubmit={handleSubmit}
                     id={`form-${id}`}
                 >
-                    <Input label="Título" value={title} variable="title" />
+                    <Input
+                        label="Título"
+                        value={title || ""}
+                        variable="title"
+                    />
                     <Input
                         label="Descripción"
-                        value={description}
+                        value={description || ""}
                         variable="description"
                     />
-                    <Input label="Imagen" value={image} variable="image" />
-                    <Rating rating={rating} />
+                    <Input
+                        label="Imagen"
+                        value={image || ""}
+                        variable="image"
+                    />
+                    <Rating rating={rating || 5} />
                     <div className="modal-action">
                         <label
                             onClick={closeModal}

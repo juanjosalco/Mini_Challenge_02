@@ -15,6 +15,7 @@ export const Input = ({ label, value, variable }) => {
                 formerdata={value}
                 variable={variable}
                 onChange={(e) => setInputValue(e.target.value)}
+                required
             />
         </div>
     );
