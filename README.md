@@ -32,9 +32,17 @@ La página web está alojada en Vercel y la base de datos está alojada en Plane
 ## Diagrama de Componentes
 ![Diagrama de Componentes](https://user-images.githubusercontent.com/105229933/235365824-48ca6459-293b-4e4d-b335-62891a4c1704.jpeg)
 
-## Documentación de los endpoints:
+## API
 
-### ```GET /api/movies```
+La API que hemos desarrollado se utiliza para gestionar una base de datos de películas en una página web. Esta API responde a las preguntas de cómo agregar, eliminar y actualizar películas en la base de datos y cómo obtener información sobre las películas.
+
+Para agregar una película a la base de datos, se utiliza el método HTTP POST, donde se proporciona la información de la película en formato JSON. Para eliminar una película de la base de datos, se utiliza el método HTTP DELETE y se proporciona el identificador de la película que se desea eliminar. Para actualizar los detalles de una película en la base de datos, se utiliza el método HTTP PATCH y se proporciona el identificador de la película y los detalles actualizados en formato JSON. Para obtener información sobre las películas en la base de datos, se utiliza el método HTTP GET.
+
+Los usuarios de la API pueden ser desarrolladores de la página web que utilizan esta API para administrar la base de datos de películas.
+
+### Documentación de los endpoints:
+
+#### ```GET /api/movies```
 Este endpoint devuelve todas las películas almacenadas en la base de datos en formato JSON. Para utilizar este endpoint, simplemente envía una solicitud HTTP GET a la URL /api/movies.
 
 Un ejemplo del formato de respuesta es:
@@ -56,7 +64,7 @@ Un ejemplo del formato de respuesta es:
     }
 ]
 ```
-### ```POST /api/movies```
+#### ```POST /api/movies```
 Este endpoint permite agregar una nueva película a la base de datos. Para utilizar este endpoint, envía una solicitud HTTP POST a la URL /api/movies con los datos de la película en formato JSON en el cuerpo de la solicitud. Por ejemplo:
 
 ```json
@@ -68,10 +76,10 @@ Este endpoint permite agregar una nueva película a la base de datos. Para utili
 }
 ```
 
-### ```DELETE /api/movies/:id```
+#### ```DELETE /api/movies/:id```
 Este endpoint permite eliminar una película existente de la base de datos. Para utilizar este endpoint, envía una solicitud HTTP DELETE a la URL /api/movies/:id, donde :id es el ID de la película que deseas eliminar
 
-### ```PATCH  /api/movies/:id```
+#### ```PATCH  /api/movies/:id```
 
 Este recibe una solicitud con los siguientes parámetros:
 
