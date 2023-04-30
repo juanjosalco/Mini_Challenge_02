@@ -86,6 +86,9 @@ Un ejemplo de un JSON es:
 {"title": "New Title", "description": "New description"}
 ```
 
+## Link de Acceso a la Documentación de la API : 
+https://app.swaggerhub.com/apis/juanjosalco/API-Movies/1.0.0
+
 ## Autores
 - [Armando Terrazas](https://github.com/Armandotrsg)
 - [Juan Salazar](https://github.com/juanjosalco)
