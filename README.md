@@ -17,9 +17,7 @@ La página web es una aplicación para administrar una lista de películas. Los 
 ## Cómo utilizar la página web
 La página web muestra una lista de películas. Cada película se muestra en una tarjeta (MovieCard) que contiene información sobre la película y botones para editar y eliminar los datos de la película.
 
-Para editar los datos de una película, haga clic en el botón “Editar” en la tarjeta correspondiente. Esto abrirá un modal (ModalEdit) donde podrá actualizar los datos de la película. Una vez que haya realizado los cambios, haga clic en el botón “Guardar” para guardar los cambios.
-
-Para eliminar una película, haga clic en el botón “Eliminar” en la tarjeta correspondiente. Esto eliminará la película de la lista.
+Para editar los datos de una película, haga clic en el botón “Editar” en la tarjeta correspondiente. Esto abrirá un modal (ModalEdit) donde podrá actualizar los datos de la película. Una vez que haya realizado los cambios, haga clic en el botón “Guardar” para guardar los cambios. Para eliminar una película, haga clic en el botón “Eliminar” dentro del modal. Esto eliminará la película de la lista.
 
 También puede agregar una nueva película haciendo clic en el botón “Agregar película” en la barra de navegación (Navbar). Esto abrirá el modal (ModalEdit) donde podrá ingresar los datos de la nueva película. Una vez que haya ingresado los datos, haga clic en el botón “Guardar” para agregar la nueva película a la lista.
 
