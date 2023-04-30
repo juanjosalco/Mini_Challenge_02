@@ -28,6 +28,9 @@ También se incluye un modo oscuro y claro que cambia automáticamente según la
 ## Hosting
 La página web está alojada en Vercel y la base de datos está alojada en PlanetScale.
 
+## Diagrama de Componentes
+![Diagrama de Componentes](https://user-images.githubusercontent.com/105229933/235365824-48ca6459-293b-4e4d-b335-62891a4c1704.jpeg)
+
 ## Autores
 - [Armando Terrazas](https://github.com/Armandotrsg)
 - [Juan Salazar](https://github.com/juanjosalco)
