@@ -3,6 +3,9 @@
 ## Resumen
 La página web es una aplicación para administrar una lista de películas. Los usuarios pueden ver, agregar, editar y eliminar películas utilizando una interfaz intuitiva y fácil de usar.
 
+## Deployment:
+[https://mini-challenge-02-inky.vercel.app](https://mini-challenge-02-inky.vercel.app)
+
 ## Tecnologías utilizadas
 - Frontend: React
 - API: Express
